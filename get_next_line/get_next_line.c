@@ -12,8 +12,6 @@
 
 #include "get_next_line.h"
 
-#define BUFFER_SIZE 42
-
 static int	locate_char(char *s, char c)
 {
 	int	i;
@@ -33,6 +31,26 @@ static char	*get_one_line(char *s)
 	return (res);
 }
 
+char	*ft_strdup(char *s1)
+{
+	char	*target;
+	size_t	i;
+
+	if (!s1)
+		return (NULL);
+	target = (char *)malloc((ft_strlen(s1) + 1) * sizeof(char));
+	if (!(target))
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		target[i] = s1[i];
+		i++;
+	}
+	target[i] = '\0';
+	return (target);
+}
+
 char	*get_next_line(int fd)
 {
 	char		*buffer;
@@ -46,11 +64,20 @@ char	*get_next_line(int fd)
 	if (!buffer)
 		return (NULL);
 	i = 1;
-	while (i > 0 && !locate_char(str, '\n') )
+	while (i && !locate_char(str, '\n'))
 	{
 		i = read(fd, buffer, BUFFER_SIZE);
 		if (i <= 0)
-			return (free(buffer), NULL);
+		{
+			if (!*str)
+				return (free(buffer), NULL);
+			else
+			{
+				line = ft_strdup(str);
+				str = NULL;
+				return (line);
+			}
+		}
 		buffer[i] = '\0';
 		str = ft_strjoin(str, buffer);
 	}
@@ -61,17 +88,17 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-int	main(void)
-{
-	int fd = open("theEnd.txt", O_RDONLY);
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	return (0);
-}
+// int	main(void)
+// {
+// 	int fd = open("theEnd.txt", O_RDONLY);
+// 	printf("%s\n", get_next_line(fd));
+// 	printf("%s\n", get_next_line(fd));
+// 	printf("%s\n", get_next_line(fd));
+// 	printf("%s\n", get_next_line(fd));
+// 	printf("%s\n", get_next_line(fd));
+// 	printf("%s\n", get_next_line(fd));
+// 	printf("%s\n", get_next_line(fd));
+// 	printf("%s\n", get_next_line(fd));
+// 	printf("%s\n", get_next_line(fd));
+// 	return (0);
+// }
