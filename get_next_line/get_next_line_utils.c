@@ -12,78 +12,62 @@
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
+	if (!str)
+		return (i);
 	while (str[i])
 		i++;
 	return (i);
 }
 
-void	*ft_memcpy(void *dest, void *src, size_t n)
-{
-	unsigned char	*dst;
-	unsigned char	*srx;
-	size_t			i;
-
-	i = 0;
-	dst = (unsigned char *)dest;
-	srx = (unsigned char *)src;
-	if (!dest && !src)
-		return (NULL);
-	while (i < n)
-	{
-		dst[i] = srx[i];
-		i++;
-	}
-	return (dest);
-}
-
-char	*ft_substr(char *s, unsigned int start, size_t len)
-{
-	char	*t;
-	size_t	i;
-
-	if (!s)
-		return (NULL);
-	i = ft_strlen(s + start);
-	if (len > i)
-		len = i;
-	t = malloc((len + 1) * sizeof(char));
-	if (!t)
-		return (NULL);
-	t[len + 1] = '\0';
-	if (start < ft_strlen(s) && len > 0)
-		ft_memcpy(t, s + start, len);
-	return (t);
-}
-
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*res;
-	size_t	i;
-	size_t	j;
+	char	*new;
+	int		i;
+	int		j;
+	int		o_len;
+	int		d_len;
 
-	if (!s1 || !s2)
-		return (NULL);
-	res = (char *)malloc(((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char)) + 1);
-	if (!res)
+	o_len = ft_strlen(s1);
+	d_len = ft_strlen(s2);
+	new = malloc ((o_len + d_len + 1) * sizeof(char));
+	if (!new)
 		return (NULL);
 	i = 0;
-	while (i < ft_strlen(s1))
-	{
-		res[i] = s1[i];
-		i++;
-	}
 	j = 0;
-	while (j < ft_strlen(s2))
-	{
-		res[i] = s2[j];
+	while (i < o_len)
+		new[i++] = s1[j++];
+	j = 0;
+	while (j < d_len)
+		new[i++] = s2[j++];
+	new[i] = '\0';
+	free(s1);
+	return (new);
+}
+
+char	*ft_substr(char *s, int start, int len)
+{
+	char	*str;
+	int		i;
+	int		j;
+
+	if (!s)
+		return (0);
+	if (start >= ft_strlen(s))
+		len = 0;
+	i = 0;
+	j = 0;
+	while (i < len && s[i])
 		i++;
-		j++;
-	}
-	res[i] = '\0';
-	return (res);
+	str = malloc((i + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (j < i)
+		str[j++] = s[start++];
+	str[i] = '\0';
+	return (str);
 }
