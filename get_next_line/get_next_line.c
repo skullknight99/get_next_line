@@ -96,18 +96,17 @@ char	*get_next_line(int fd)
 	stc_arr = str_remainder(stc_arr);
 	return (line);
 }
-
-int	main(void)
-{
-	int fd = open("theEnd.txt", O_RDONLY);
-	printf("%s", get_next_line_bonus(fd));
-	printf("%s", get_next_line_bonus(fd));
-	printf("%s", get_next_line_bonus(fd));
-	printf("%s", get_next_line_bonus(fd));
-	printf("%s", get_next_line_bonus(fd));
-	printf("%s", get_next_line_bonus(fd));
-	printf("%s", get_next_line_bonus(fd));
-	printf("%s", get_next_line_bonus(fd));
-	printf("%s", get_next_line_bonus(fd));
-	return (0);
-}
+// int	main(void)
+// {
+// 	int fd = open("theEnd.txt", O_RDONLY);
+// 	printf("%s", get_next_line_bonus(fd));
+// 	printf("%s", get_next_line_bonus(fd));
+// 	printf("%s", get_next_line_bonus(fd));
+// 	printf("%s", get_next_line_bonus(fd));
+// 	printf("%s", get_next_line_bonus(fd));
+// 	printf("%s", get_next_line_bonus(fd));
+// 	printf("%s", get_next_line_bonus(fd));
+// 	printf("%s", get_next_line_bonus(fd));
+// 	printf("%s", get_next_line_bonus(fd));
+// 	return (0);
+// }
