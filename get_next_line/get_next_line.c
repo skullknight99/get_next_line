@@ -99,14 +99,14 @@ char	*get_next_line(int fd)
 // int	main(void)
 // {
 // 	int fd = open("theEnd.txt", O_RDONLY);
-// 	printf("%s", get_next_line_bonus(fd));
-// 	printf("%s", get_next_line_bonus(fd));
-// 	printf("%s", get_next_line_bonus(fd));
-// 	printf("%s", get_next_line_bonus(fd));
-// 	printf("%s", get_next_line_bonus(fd));
-// 	printf("%s", get_next_line_bonus(fd));
-// 	printf("%s", get_next_line_bonus(fd));
-// 	printf("%s", get_next_line_bonus(fd));
-// 	printf("%s", get_next_line_bonus(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
+// 	printf("%s", get_next_line(fd));
 // 	return (0);
 // }
