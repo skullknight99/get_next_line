@@ -97,17 +97,17 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// int	main(void)
-// {
-// 	int fd = open("theEnd.txt", O_RDONLY);
-// 	printf("%s\n", get_next_line(fd));
-// 	printf("%s\n", get_next_line(fd));
-// 	printf("%s\n", get_next_line(fd));
-// 	printf("%s\n", get_next_line(fd));
-// 	printf("%s\n", get_next_line(fd));
-// 	printf("%s\n", get_next_line(fd));
-// 	printf("%s\n", get_next_line(fd));
-// 	printf("%s\n", get_next_line(fd));
-// 	printf("%s\n", get_next_line(fd));
-// 	return (0);
-// }
+int	main(void)
+{
+	int fd = open("theEnd.txt", O_RDONLY);
+	printf("%s", get_next_line_bonus(fd));
+	printf("%s", get_next_line_bonus(fd));
+	printf("%s", get_next_line_bonus(fd));
+	printf("%s", get_next_line_bonus(fd));
+	printf("%s", get_next_line_bonus(fd));
+	printf("%s", get_next_line_bonus(fd));
+	printf("%s", get_next_line_bonus(fd));
+	printf("%s", get_next_line_bonus(fd));
+	printf("%s", get_next_line_bonus(fd));
+	return (0);
+}
