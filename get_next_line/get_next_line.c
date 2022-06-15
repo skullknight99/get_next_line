@@ -96,17 +96,3 @@ char	*get_next_line(int fd)
 	stc_arr = str_remainder(stc_arr);
 	return (line);
 }
-// int	main(void)
-// {
-// 	int fd = open("theEnd.txt", O_RDONLY);
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	printf("%s", get_next_line(fd));
-// 	return (0);
-// }
